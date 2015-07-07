@@ -756,11 +756,8 @@ RCT_NOT_IMPLEMENTED(-initWithBundleURL:(__unused NSURL *)bundleURL
          RCTLogError(@"%@", error.localizedDescription);
        } else {
          dispatch_async(dispatch_get_main_queue(), ^{
-           [[[UIAlertView alloc] initWithTitle:@"Profile"
-                                       message:@"The profile has been generated, check the dev server log for instructions."
-                                      delegate:nil
-                             cancelButtonTitle:@"OK"
-                             otherButtonTitles:nil] show];
+           UIAlertView *alert = RCTAlertView(@"Profile", @"The profile has been generated, check the dev server log for instructions.", nil, @"OK", nil);
+           [alert show];
          });
        }
      }];

@@ -10,6 +10,7 @@
 #import "RCTStatusBarManager.h"
 
 #import "RCTLog.h"
+#import "RCTUtils.h"
 
 @implementation RCTConvert (UIStatusBar)
 
@@ -54,8 +55,8 @@ RCT_EXPORT_METHOD(setStyle:(UIStatusBarStyle)statusBarStyle
     RCTLogError(@"RCTStatusBarManager module requires that the \
                 UIViewControllerBasedStatusBarAppearance key in the Info.plist is set to NO");
   } else {
-    [[UIApplication sharedApplication] setStatusBarStyle:statusBarStyle
-                                                animated:animated];
+    [RCTSharedApplication() setStatusBarStyle:statusBarStyle
+                                     animated:animated];
   }
 }
 
@@ -66,8 +67,8 @@ RCT_EXPORT_METHOD(setHidden:(BOOL)hidden
     RCTLogError(@"RCTStatusBarManager module requires that the \
                 UIViewControllerBasedStatusBarAppearance key in the Info.plist is set to NO");
   } else {
-    [[UIApplication sharedApplication] setStatusBarHidden:hidden
-                                            withAnimation:animation];
+    [RCTSharedApplication() setStatusBarHidden:hidden
+                                 withAnimation:animation];
   }
 }
 

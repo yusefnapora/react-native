@@ -137,7 +137,7 @@ RCT_NOT_IMPLEMENTED(-initWithCoder:(NSCoder *)aDecoder)
   self.hidden = YES;
   self.backgroundColor = _redColor;
   [self resignFirstResponder];
-  [[[[UIApplication sharedApplication] delegate] window] makeKeyWindow];
+  [[[RCTSharedApplication() delegate] window] makeKeyWindow];
 }
 
 - (void)reload
